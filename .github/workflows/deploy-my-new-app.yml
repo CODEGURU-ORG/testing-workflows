@@ -1,40 +1,33 @@
 name: MY-NEW-APP REACT APP CI/CD
 
-# Trigger workflow on push to any branch
 on:
   push:
+    branches:
+      - main  # or whichever branch you want to deploy
 
 jobs:
   deploy-react:
-    runs-on: self-hosted  # your self-hosted runner on the server
+    runs-on: self-hosted
 
     steps:
-      # Step 1: Checkout your repo
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # Step 2: Set up Node.js
-      - name: Set up Node.js
+      - name: Install Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 20  # match your Node.js version on server
+          node-version: "20"
 
-      # Step 3: Install dependencies
       - name: Install dependencies
-        run: npm install
+        run: |
+          cd /home/host_user/apps_backup/my-new-app
+          npm install
 
-      # Step 4: Build React app
       - name: Build React app
-        run: npm run build
+        run: |
+          cd /home/host_user/apps_backup/my-new-app
+          npm run build
 
-      # Step 5: Deploy locally
       - name: Deploy locally
         run: |
-          # Remove old deployment (if exists)
-          rm -rf /home/host_user/apps_backup/my_new_app
-          
-          # Move new build to deployment folder
-          mv dist /home/host_user/apps_backup/my_new_app
-          
-          # Run your custom deployment script
-          /bin/bash /home/host_user/apps_backup/shell_cmds/my_new_app.sh
+          /home/host_user/apps_backup/shell_cmds/my_new_app.sh
