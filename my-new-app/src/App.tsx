@@ -82,6 +82,6 @@ function App() {
       <footer style={footerStyle}>Built with React & Vite</footer>
     </div>
   );
-}
-
+ }
+       
 export default App;
