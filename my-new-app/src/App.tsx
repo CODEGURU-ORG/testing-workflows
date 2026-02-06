@@ -36,7 +36,7 @@ function App() {
     fontWeight: "bold",
     cursor: "pointer",
     marginTop: "20px",
-    fontSize: "16px",
+    fontSize: "17px",
   };
 
   const titleStyle: React.CSSProperties = {
