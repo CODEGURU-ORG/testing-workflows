@@ -17,6 +17,7 @@ function App() {
     boxSizing: "border-box",
   };
 
+  
   const cardStyle: React.CSSProperties = {
     backgroundColor: "#fff",
     padding: "50px",
