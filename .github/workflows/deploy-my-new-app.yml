@@ -13,17 +13,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: "20"
-
-      - name: Install dependencies
-        run: npm install
-
       - name: Build React app
-        run: npm run build
-
-      - name: Deploy using server script
         run: |
-          /bin/bash /home/host_user/TestApps/scripts/deploy_my_new_app.sh
+          cd /home/host_user/apps_backup/my-new-app
+          npm run build
+
+      - name: Deploy locally
+        run: |
+          /home/host_user/apps_backup/shell_cmds/my_new_app.sh
