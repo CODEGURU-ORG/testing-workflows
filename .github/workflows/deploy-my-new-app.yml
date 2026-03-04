@@ -1,24 +1,23 @@
 name: MY-NEW-APP REACT APP CI/CD
 
 on:
-push:
-branches:
-- main
+  push:
+    branches:
+      - main
 
 jobs:
-deploy-react:
-runs-on: self-hosted
+  deploy-react:
+    runs-on: self-hosted
 
-```
-steps:
-  - name: Checkout repository
-    uses: actions/checkout@v4
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-  - name: Build React app
-    run: |
-      cd /home/host_user/apps_backup/my-new-app
-      npm run build
+      - name: Build React app
+        run: |
+          cd /home/host_user/apps_backup/my-new-app
+          npm run build
 
-  - name: Deploy locally
-    run: |
-      /home/host_user/apps_backup/shell_cmds/my_new_app.sh
+      - name: Deploy locally
+        run: |
+          /bin/bash /home/host_user/apps_backup/shell_cmds/my_new_app.sh
