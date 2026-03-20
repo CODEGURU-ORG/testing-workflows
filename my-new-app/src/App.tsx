@@ -7,7 +7,7 @@ function App() {
     height: "100vh",
     width: "100vw",
     display: "flex",
-    flexDirection: "column",
+    flexDirection: "column",   
     alignItems: "center",
     justifyContent: "center",
     background: "linear-gradient(to right, #a0e9fd, #a8f4d9, #c6f6d8)",
@@ -19,7 +19,7 @@ function App() {
 
   
   const cardStyle: React.CSSProperties = {
-    backgroundColor: "#fff",
+    backgroundColor: "#fff" ,
     padding: "50px",
     borderRadius: "20px",
     boxShadow: "0 12px 30px rgba(0,0,0,0.2)",
